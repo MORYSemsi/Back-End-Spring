@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Ajouter Intervenant</title>
+</head>
+<body>
+<h2>Ajouter Intervenant</h2>
+<form action="/intervenants/add" method="POST">
+<input type="hidden" th:value="${intervenant.id}"  name="id"/>
+<label>Nom: </label><input type="text" th:value="${intervenant.nom}"  name="nom" required="true"/><br/>
+<label>Email:</label> <input type="email" th:value="${intervenant.email}" name="email" required="true"/><br/>
+<br/><input type="submit" value="Enregistrer"/>
+</form>
+</body>
+</html>

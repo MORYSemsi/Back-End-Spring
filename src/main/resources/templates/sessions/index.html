@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Sessions</title>
+</head>
+<body>
+<h2>Sessions</h2>
+<table>
+<thead>
+<th>Id</th>
+<th>Theme</th>
+<th>Date</th>
+<th>Détails</th>
+<th>Supprimer</th>
+</thead>
+<tbody>
+<tr th:each="session : ${sessions}" >
+<td  th:text="${session.id}" ></td>
+<td  th:text="${session.theme}" ></td>
+<td  th:text="${#dates.format(session.date, 'dd-MM-yyyy')}" ></td>
+<td ><a th:href="@{details/{id}(id=${session.id})}">Détails</a></td>
+<td ><a th:href="@{delete/{id}(id=${session.id})}">Supprimer</a></td>
+</tr>
+<tr><td></td><td><a th:href="@{add/}">Ajouter</a></td></tr>
+</tbody>
+</table>
+</body>
+</html>

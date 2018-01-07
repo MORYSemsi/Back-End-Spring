@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Ajouter Session</title>
+</head>
+<body>
+<h2>Ajouter Session</h2>
+<form action="/sessions/add" method="POST">
+<input type="hidden" th:value="${session1.id}"  name="id"/>
+<label>Theme: </label><input type="text" th:value="${session1.theme}"  name="theme" required="true"/><br/>
+<label>Description:</label> <input type="text" th:value="${session1.description}" name="description" required="true"/><br/>
+<label>Date:</label> <input type="date" th:value="${#dates.format(session1.date, 'yyyy-MM-dd')}" name="date" required="true"/><br/>
+<label>Intervenant:</label><select name="intervenant" required="true">
+<option th:value="${intervenant1.id}" th:text="${intervenant1.nom}" ></option>
+<option th:each="intervenant : ${intervenants}"  th:value="${intervenant.id}" th:text="${intervenant.nom}" ></option>
+</select>
+<br/>
+<br/><input type="submit" value="Enregistrer"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Intervenants</title>
+</head>
+<body>
+<h2>Intervenants</h2>
+<table>
+<thead>
+<th>Id</th>
+<th>Nom</th>
+<th>Détails</th>
+<th>Supprimer</th>
+</thead>
+<tbody>
+<tr th:each="intervenant : ${intervenants}" >
+<td  th:text="${intervenant.id}" ></td>
+<td  th:text="${intervenant.nom}" ></td>
+<td ><a th:href="@{details/{id}(id=${intervenant.id})}">Détails</a></td>
+<td ><a th:href="@{delete/{id}(id=${intervenant.id})}">Supprimer</a></td>
+</tr>
+<tr><td></td><td><a th:href="@{add/}">Ajouter</a></td></tr>
+</tbody>
+</table>
+</body>
+</html>
